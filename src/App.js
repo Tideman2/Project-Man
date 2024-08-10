@@ -1,28 +1,32 @@
 import React  from 'react';
-import Welcome from './Components/Welcome/Welcome';
-import Home from './Components/Home/Home';
-import Callback from './Components/Callback/Callback';
-import SpotifyAuth from './Components/SpotifyAuth/SpotifyAuth';
-
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-
+import CreateProject from './Components/CreateProject/CreateProject';
+import Nofify from './Components/Notify/Notify';
+import { useState } from 'react';
+import ControlTab from './Components/ControlTab/ControlTab';
+import CurrentProject from './Components/CurrentProject/CurrentProject';
 
 function App() {
- 
+let [currentProject, setCurrentProject] = useState(null);
+let [projects, setProjects] = useState([]);
 
-  return (
-    <>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/callback" element={<Callback />} />
-        <Route path="/login" element={<SpotifyAuth />} />
-      </Routes>
-    </Router>
-    </>
-  );
+let me = new Set;
+
+ return (
+  <>
+  <section className='sec'>
+
+  <ControlTab projects = {projects}
+  setCurrent = {setCurrentProject}/>
+   
+   <div>
+   {currentProject? <CurrentProject activeProject = {currentProject} setActiveProject = {setCurrentProject}/>: <Nofify 
+   projects = {projects} setProjects = {setProjects}
+   setCurrent = {setCurrentProject}/>}
+   </div>
+  </section>
+  </>
+ )
+ 
 }
 
 

@@ -1,0 +1,28 @@
+.contain {
+    margin-top: auto;
+    height: 200px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contain > h1 {
+    color: white;
+    font-weight: bold;
+    padding: 30px;
+}
+
+.contain > button {
+    background-color: blue;
+    padding: 5px;
+    font-size: large;
+    color: white;
+}
+
+.contain > button:hover {
+    background-color: rgba(0, 0, 255, 0.429);
+    border-color: blue;
+    border-width: 2px;
+}
