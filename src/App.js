@@ -19,7 +19,8 @@ let me = new Set;
   setCurrent = {setCurrentProject}/>
    
    <div>
-   {currentProject? <CurrentProject activeProject = {currentProject} setActiveProject = {setCurrentProject}/>: <Nofify 
+   {currentProject? <CurrentProject activeProject = {currentProject} setActiveProject = {setCurrentProject}
+   projects = {projects} setProjects = {setProjects}/>: <Nofify 
    projects = {projects} setProjects = {setProjects}
    setCurrent = {setCurrentProject}/>}
    </div>

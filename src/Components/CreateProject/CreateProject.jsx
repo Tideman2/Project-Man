@@ -55,25 +55,33 @@ export default function CreateProject({projects, setProjects, setCreateProject, 
     return (
        <>
        hg
-       <section id= {style.container}>  
-        <div>
-            <button className= {style.btn} onClick={onCancle}>Cancle</button>
-            <button className= {style.btn} onClick={onSave}>Save</button>
+       <section className="flex flex-col space-y-2 p-2">  
+        <div className="grid grid-cols-2 justify-items-start">
+            <button className="bg-red-400 py-1 px-3 text-sm rounded-lg
+             hover:bg-red-200 hover:ring-2 hover:ring-red-600" onClick={onCancle}>Cancle</button>
+            <button className="bg-green-400 py-1 px-3 text-sm rounded-lg
+             hover:bg-green-200 hover:ring-2 hover:ring-green-600" onClick={onSave}>Save</button>
         </div>
-         <h1 >Create A Project</h1>
-       <div >
+         <h1 className="text-center text-lg font-bold">Create A Project</h1>
+
+       <div className="space-y-1">
         <h1 >Project name:</h1>
-        <input ref={projectName} type="text" ></input>
+        <input ref={projectName} type="text" 
+        className="w-full p-2 border border-gray-300 rounded-md 
+        shadow-sm focus:outline-none focus:ring-2 focus:ring-green-200"></input>
         </div>
 
-        <div>
+        <div className="space-y-1">
         <h2 >Project Discription:</h2>
-        <input ref={projectDescription} type="text" ></input>
+        <input ref={projectDescription} type="text" 
+         className="w-full p-2 border border-gray-300 rounded-md 
+         shadow-sm focus:outline-none focus:ring-2 focus:ring-green-200"></input>
         </div>
 
-        <div>
+        <div className="space-y-1">
         <h2 >Select your Due-Date:</h2>
-        <input ref={dueDate} type="date" ></input>
+        <input ref={dueDate} type="date" className="w-full p-3 border border-gray-300 rounded-md shadow-sm
+         bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-200"></input>
         </div>
        </section>
        </> 

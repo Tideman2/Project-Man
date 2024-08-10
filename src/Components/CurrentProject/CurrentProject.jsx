@@ -1,9 +1,10 @@
 import { useRef, useState, useEffect } from "react"
 import ProjectTasks from "../ProjectTask/ProjectTask"
 
-export default function CurrentProject({activeProject, setActiveProject}) {
+export default function CurrentProject({activeProject, setActiveProject, projects, setProjects}) {
    let enteredTask = useRef();
    let [addedTask, setAddedTask] = useState(false);
+   let [projectDeleted, setProjectDeleted] = useState(false)
   console.log(activeProject)
 
   function onAddTask() {
@@ -19,14 +20,41 @@ export default function CurrentProject({activeProject, setActiveProject}) {
     if(addedTask) {
         enteredTask.current.value = ``;
     }
-    setAddedTask(false)
-  }, [addedTask])
+    setAddedTask(false);
+
+    if(projectDeleted) {
+      setActiveProject(null)
+    }
+    setProjectDeleted(false)
+  }, [addedTask, projectDeleted]);
+
+  function onDelete() {
+     let activeProjectId = activeProject.projectId;
+     let indexOfProjectListItems = 0;
+     while(indexOfProjectListItems < projects.length) {
+         let projectToCheck = projects[indexOfProjectListItems];
+         console.log(projectToCheck);
+          if(activeProjectId === projectToCheck.projectId) {
+            setProjectDeleted(true);
+            setProjects((prev) => {
+                let newProj = [...prev];
+                newProj.forEach((item, index) => {
+                    if(item.projectId === activeProjectId) {
+                        newProj.splice(0, index);
+                    }
+                } )
+                return newProj
+            })
+          }else {}
+          indexOfProjectListItems++
+     }
+  }
   
     return (
         <>
         <section className="grid grid-cols-1 gap-1 w-auto p-4 bg-slate-300">
             <button className="bg-red-600 text-white py-1 px-3 text-sm rounded-lg hover:bg-red-300
-            hover:ring-2 hover:ring-red-600 justify-self-end">
+            hover:ring-2 hover:ring-red-600 justify-self-end" onClick={onDelete}>
                 Delete Project
             </button>
 

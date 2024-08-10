@@ -18,7 +18,8 @@ export default function ProjectTasks({tasks, setActiveProject}) {
           <li key={index} className="text-gray-700 flex items-center justify-between space-x-3">
             <p className="flex-1">{item}</p>
             <button onClick={() => {onRemove(item)}}
-            className="text-red-500 bg-transparent border border-red-500 px-2 py-1 text-xs font-medium rounded hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-400">
+            className="text-red-500 bg-transparent border border-red-500 px-2 py-1 
+            text-xs font-medium rounded hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-400">
               Remove
             </button>
           </li>

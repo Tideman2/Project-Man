@@ -14,7 +14,7 @@ export default function ControlTab({projects, setCurrent}) {
            {
              projects.map((item, index) => {
                 return (
-                    <button
+                    <button key={index}
                     onClick={() => onItemClick(index)}
                     className="w-full space-y-2 p-3 bg-gray-200 text-gray-800 font-medium rounded-lg shadow hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
                   >
