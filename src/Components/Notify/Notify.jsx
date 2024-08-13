@@ -2,8 +2,7 @@ import { useState } from "react";
 import CreateProject from "../CreateProject/CreateProject";
 import style from "./notify.module.css";
 
-export default function Nofify({projects, setProjects, setCurrent}) {
-let [createProject, setCreateProject] = useState(false);
+export default function Nofify({projects, setProjects, setCurrent, createProject, setCreateProject}) {
 
  function onButtonClick() {
     setCreateProject(true);

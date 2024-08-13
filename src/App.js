@@ -8,6 +8,7 @@ import CurrentProject from './Components/CurrentProject/CurrentProject';
 function App() {
 let [currentProject, setCurrentProject] = useState(null);
 let [projects, setProjects] = useState([]);
+let [createProject, setCreateProject] = useState(false);
 
 let me = new Set;
 
@@ -21,6 +22,7 @@ let me = new Set;
    <div>
    {currentProject? <CurrentProject activeProject = {currentProject} setActiveProject = {setCurrentProject}
    projects = {projects} setProjects = {setProjects}/>: <Nofify 
+   createProject = {createProject} setCreateProject = {setCreateProject}
    projects = {projects} setProjects = {setProjects}
    setCurrent = {setCurrentProject}/>}
    </div>

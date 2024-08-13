@@ -30,7 +30,23 @@ export default function CurrentProject({activeProject, setActiveProject, project
 
   function onDelete() {
      let activeProjectId = activeProject.projectId;
-     let indexOfProjectListItems = 0;
+     let indexOfProjectListItems = 0
+    //  projects.forEach((element) => {
+    //     if(element.projectId === activeProjectId) {
+    //         console.log(`found a match`, activeProject);
+    //         setProjectDeleted(true);
+    //         setProjects((prev) => {
+    //             let newProj = [...prev];
+    //             newProj.forEach((item, index) => {
+    //                 if(item.projectId === activeProjectId) {
+    //                     newProj.splice(index, 1)
+    //                 }
+    //             })
+    //         })
+    //     }else {
+    //         console.log(`no match`)
+    //     }
+    //  });
      while(indexOfProjectListItems < projects.length) {
          let projectToCheck = projects[indexOfProjectListItems];
          console.log(projectToCheck);
@@ -40,7 +56,7 @@ export default function CurrentProject({activeProject, setActiveProject, project
                 let newProj = [...prev];
                 newProj.forEach((item, index) => {
                     if(item.projectId === activeProjectId) {
-                        newProj.splice(0, index);
+                        newProj.splice(index, 1);
                     }
                 } )
                 return newProj

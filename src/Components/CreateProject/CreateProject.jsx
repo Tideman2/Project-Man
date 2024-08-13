@@ -45,12 +45,12 @@ export default function CreateProject({projects, setProjects, setCreateProject, 
         projectName.current.value = ``;
         projectDescription.current.value = ``;
         dueDate.current.value = ``;
+        setCurrent(projects.at(-1))
         setDone(false)
        }
        
     }, [done])
     
-
    
     return (
        <>
